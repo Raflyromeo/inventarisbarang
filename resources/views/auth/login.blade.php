@@ -74,7 +74,12 @@
                     
                     <div class="mb-4">
                         <label for="password" class="form-label fw-bold small text-dark">Kata Sandi</label>
-                        <input type="password" class="form-control form-control-lg bg-light border-0" id="password" name="password" required placeholder="Masukkan kata sandi" style="font-size: 0.95rem;">
+                        <div class="input-group">
+                            <input type="password" class="form-control form-control-lg bg-light border-0" id="password" name="password" required placeholder="Masukkan kata sandi" style="font-size: 0.95rem;">
+                            <button class="btn btn-light bg-light border-0" type="button" id="togglePassword">
+                                <i class="bi bi-eye-slash text-muted"></i>
+                            </button>
+                        </div>
                     </div>
                     
                     <div class="d-flex justify-content-between align-items-center mb-4">
@@ -114,5 +119,20 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    document.getElementById('togglePassword').addEventListener('click', function () {
+        const password = document.getElementById('password');
+        const icon = this.querySelector('i');
+        if (password.type === 'password') {
+            password.type = 'text';
+            icon.classList.remove('bi-eye-slash');
+            icon.classList.add('bi-eye');
+        } else {
+            password.type = 'password';
+            icon.classList.remove('bi-eye');
+            icon.classList.add('bi-eye-slash');
+        }
+    });
+</script>
 </body>
 </html>
