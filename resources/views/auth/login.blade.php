@@ -46,12 +46,18 @@
         <div class="col-md-4 col-lg-4 d-flex align-items-center justify-content-center bg-white shadow-lg z-index-2 position-relative">
             <div class="w-100" style="max-width: 400px; padding: 20px;">
                 
+                <div class="mb-4">
+                    <a href="{{ route('landing') }}" class="text-decoration-none text-muted small fw-semibold" style="transition: color 0.2s;" onmouseover="this.classList.remove('text-muted'); this.style.color='#0f3b64';" onmouseout="this.classList.add('text-muted'); this.style.color='';">
+                        <i class="bi bi-arrow-left me-1"></i> Kembali ke Beranda
+                    </a>
+                </div>
+                
                 <div class="text-start mb-4">
                     <img src="{{ asset('gambar/logopustekinfo.webp') }}" alt="Logo PUSTEKINFO" class="logo-img mb-3">
                     <h3 class="fw-bold text-dark mb-1">Masuk Akun</h3>
                     <p class="text-muted small mb-3">Pusat Teknologi Informasi<br>Sekretariat Jenderal DPR RI</p>
                     <!-- Garis bawah sejajar dengan teks kiri -->
-                    <div style="width: 60px; height: 3px; background-color: var(--dpr-blue);"></div>
+                    <div style="width: 60px; height: 3px; background-color: #0f3b64;"></div>
                 </div>
                 
                 @if($errors->any())

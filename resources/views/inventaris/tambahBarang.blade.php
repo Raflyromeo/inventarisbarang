@@ -2,16 +2,20 @@
 
 @section('title', 'Tambah Barang')
 
+@section('breadcrumb')
+    <li class="breadcrumb-item"><a href="{{ route('inventaris.index') }}">Data Barang IT</a></li>
+    <li class="breadcrumb-item active">Tambah Barang</li>
+@endsection
+
 @section('content')
-<div class="mb-3">
-    <a href="{{ route('inventaris.index') }}" class="text-decoration-none text-muted fw-semibold" style="transition: color 0.2s;" onmouseover="this.classList.replace('text-muted', 'text-primary')" onmouseout="this.classList.replace('text-primary', 'text-muted')">
-        <i class="bi bi-arrow-left me-1"></i> Kembali ke Daftar Barang
-    </a>
-</div>
-<div class="row mb-4">
-    <div class="col-md-12">
-        <h3 class="fw-bold text-dpr mb-0"><i class="bi bi-plus-circle me-2"></i> Tambah Barang Baru</h3>
+<div class="page-header">
+    <div>
+        <h1 class="page-header-title"><i class="bi bi-plus-circle-fill me-2" style="color:var(--dpr-blue);"></i>Tambah Barang Baru</h1>
+        <p class="page-header-sub">Isi formulir di bawah untuk mendaftarkan aset IT baru ke sistem inventaris.</p>
     </div>
+    <a href="{{ route('inventaris.index') }}" class="btn" style="background:#f1f5f9; color:#475569; border-radius:10px; font-weight:600; padding:0.55rem 1.25rem; font-size:0.875rem; text-decoration:none;">
+        <i class="bi bi-arrow-left me-1"></i> Kembali
+    </a>
 </div>
 
 <div class="card shadow-sm border-0">

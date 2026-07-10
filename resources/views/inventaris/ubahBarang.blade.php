@@ -2,16 +2,22 @@
 
 @section('title', 'Ubah Barang')
 
+@section('breadcrumb')
+    <li class="breadcrumb-item"><a href="{{ route('inventaris.index') }}">Data Barang IT</a></li>
+    <li class="breadcrumb-item"><a href="{{ route('inventaris.show', $barang->id) }}">{{ Str::limit($barang->nama_barang, 30) }}</a></li>
+    <li class="breadcrumb-item active">Ubah</li>
+@endsection
+
 @section('content')
-<div class="mb-3">
-    <a href="{{ route('inventaris.index') }}" class="text-decoration-none text-muted fw-semibold" style="transition: color 0.2s;" onmouseover="this.classList.replace('text-muted', 'text-primary')" onmouseout="this.classList.replace('text-primary', 'text-muted')">
-        <i class="bi bi-arrow-left me-1"></i> Kembali ke Daftar Barang
-    </a>
-</div>
-<div class="row mb-4">
-    <div class="col-md-12">
-        <h3 class="fw-bold text-dpr mb-0"><i class="bi bi-pencil-square me-2"></i> Ubah Barang</h3>
-        <p class="text-muted mb-0 mt-1">Kode Barang: <span class="badge bg-secondary">{{ $barang->kode_barang }}</span></p>
+<div class="page-header">
+    <div>
+        <h1 class="page-header-title"><i class="bi bi-pencil-fill me-2" style="color:#d97706;"></i>Ubah Data Barang</h1>
+        <p class="page-header-sub">Kode: <span style="font-family:monospace; background:#f1f5f9; padding:2px 8px; border-radius:6px; font-size:0.875rem;">{{ $barang->kode_barang }}</span></p>
+    </div>
+    <div class="d-flex gap-2">
+        <a href="{{ route('inventaris.show', $barang->id) }}" class="btn" style="background:#f1f5f9; color:#475569; border-radius:10px; font-weight:600; padding:0.55rem 1.25rem; font-size:0.875rem; text-decoration:none;">
+            <i class="bi bi-arrow-left me-1"></i> Kembali
+        </a>
     </div>
 </div>
 
@@ -113,7 +119,7 @@
                         <label for="foto" class="form-label fw-semibold">Foto Barang (Ganti)</label>
                         @if($barang->foto)
                             <div class="mb-2">
-                                <img src="{{ asset('storage/' . $barang->foto) }}" alt="Foto" class="img-thumbnail" style="height: 80px;">
+                                <img src="{{ route('inventaris.foto', $barang->id) }}" alt="Foto" class="img-thumbnail" style="height: 80px;">
                             </div>
                         @endif
                         <input class="form-control @error('foto') is-invalid @enderror" type="file" id="foto" name="foto" accept="image/*">
@@ -125,7 +131,7 @@
                         <label for="file_manual" class="form-label fw-semibold">File Manual (Ganti PDF)</label>
                         @if($barang->file_manual)
                             <div class="mb-2">
-                                <a href="{{ asset('storage/' . $barang->file_manual) }}" target="_blank" class="badge bg-danger text-decoration-none"><i class="bi bi-file-earmark-pdf"></i> Lihat PDF saat ini</a>
+                                <a href="{{ route('inventaris.manual', $barang->id) }}" target="_blank" class="badge bg-danger text-decoration-none"><i class="bi bi-file-earmark-pdf"></i> Lihat PDF saat ini</a>
                             </div>
                         @endif
                         <input class="form-control @error('file_manual') is-invalid @enderror" type="file" id="file_manual" name="file_manual" accept=".pdf">
